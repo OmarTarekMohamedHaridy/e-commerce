@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/cache/shared_pref.dart';
 import 'core/utils/observer.dart';
+import 'di.dart';
 
 
 void main() async{
@@ -14,6 +15,7 @@ void main() async{
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
   String? token =CacheHelper.getData<String>("token");
+  configureDependencies();
   runApp(
       MainApp(loggedIn: token==null?false : true));
 }
