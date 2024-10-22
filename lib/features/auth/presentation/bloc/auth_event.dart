@@ -5,8 +5,8 @@ abstract class AuthEvent {}
 
 class LoginEvent extends AuthEvent {
   String email;
-  String pasworrd;
-  LoginEvent(this.email,this.pasworrd);
+  String password;
+  LoginEvent(this.email,this.password);
 }
 
 class SignUpEvent extends AuthEvent {

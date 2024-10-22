@@ -16,9 +16,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthLoginState> {
     on<AuthEvent>((event, emit) {});
 
     on<LoginEvent>((event, emit) async {
+
       state.copyWith(requestState: RequestState.loading);
 
-      var data = await loginUseCase.call(event.email, event.pasworrd);
+      var data = await loginUseCase.call(event.email, event.password);
       data.fold(
         (l) {
           emit(state.copyWith(
@@ -27,8 +28,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthLoginState> {
               requestState: RequestState.error));
         },
         (r) {
-          emit.call(AuthLoginState());
 
+          emit.call(AuthLoginState());
           emit(state.copyWith(LoggedIn: r, requestState: RequestState.success));
         },
       );

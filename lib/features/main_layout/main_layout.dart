@@ -22,7 +22,7 @@ class _MainLayoutState extends State<MainLayout> {
     const HomeTab(),
     const CategoriesTab(),
     const FavouriteScreen(),
-    const ProfileTab(),
+     ProfileTab(),
   ];
   @override
   Widget build(BuildContext context) {

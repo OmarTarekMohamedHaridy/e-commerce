@@ -1,13 +1,15 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/config/routes_manager/routes.dart';
 import 'package:ecommerce_app/core/utils/assets_manager.dart';
 import 'package:ecommerce_app/core/utils/color_manager.dart';
 import 'package:ecommerce_app/core/utils/components/product_counter.dart';
 import 'package:ecommerce_app/core/utils/styles_manager.dart';
 import 'package:ecommerce_app/core/utils/values_manager.dart';
-import 'package:ecommerce_app/features/cart/widgets/color_and_size_cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'color_and_size_cart_item.dart';
 
 class CartItemWidget extends StatelessWidget {
   const CartItemWidget({
@@ -22,6 +24,7 @@ class CartItemWidget extends StatelessWidget {
     required this.quantity,
     required this.onIncrementTap,
     required this.onDecrementTap,
+
   });
   final String imagePath;
   final String title;
@@ -49,19 +52,14 @@ class CartItemWidget extends StatelessWidget {
         ),
         child: Row(children: [
           // display image in the container
-          Container(
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.r),
-              border: Border.all(color: ColorManager.primary.withOpacity(0.3)),
-            ),
-            child: Image.asset(
-              imagePath,
+CachedNetworkImage(
+              imageUrl: imagePath,
               fit: BoxFit.cover,
-              height: isPortrait ? height * 0.142 : height * 0.23,
-              width: isPortrait ? width * 0.29 : 165.w,
+              placeholder: (context, url) =>
+              const Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) =>
+              const Icon(Icons.error),
             ),
-          ),
           // SizedBox(width: 8.w),
           // display details product=========================
           Expanded(

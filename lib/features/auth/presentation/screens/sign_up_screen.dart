@@ -33,11 +33,11 @@ var nameController = TextEditingController();
       create: (context) => AuthBloc(
           LoginUseCase(AuthRepoImp(AuthRemoteDsImp(ApiManager()))),
           SignUpUseCase(AuthRepoImp(AuthRemoteDsImp(ApiManager())))),
-
       child: BlocConsumer<AuthBloc,AuthLoginState>(
         listener: ( context,  state) {
           if(state.requestState == RequestState.success){
-            Navigator.pushNamed(context, Routes.mainRoute);
+            Navigator.pushNamed(context, Routes.signInRoute,
+            );
           }
           else if(state.requestState == RequestState.error){
             print("error");
@@ -118,13 +118,13 @@ var nameController = TextEditingController();
                                 color: ColorManager.primary, fontSize: AppSize.s20),
                             onTap: () {
                               SignupEntity entity= SignupEntity(
-
                                   fullName: nameController.text,
                                   Phone: phoneController.text,
                                   email: emailController.text,
                                   Password: passwordController.text
                               );
                               BlocProvider.of<AuthBloc>(context).add(SignUpEvent(entity));
+
                             },
                           ),
                         ),

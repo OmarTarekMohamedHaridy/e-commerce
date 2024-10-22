@@ -1,7 +1,7 @@
 class CategoryModel {
   int? results;
   Metadata? metadata;
-  List<CategoryData>? data;
+  List<Data>? data;
 
   CategoryModel({this.results, this.metadata, this.data});
 
@@ -11,9 +11,9 @@ class CategoryModel {
         ? new Metadata.fromJson(json['metadata'])
         : null;
     if (json['data'] != null) {
-      data = <CategoryData>[];
+      data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new CategoryData.fromJson(v));
+        data!.add(new Data.fromJson(v));
       });
     }
   }
@@ -56,7 +56,7 @@ class Metadata {
   }
 }
 
-class CategoryData {
+class Data {
   String? sId;
   String? name;
   String? slug;
@@ -65,7 +65,7 @@ class CategoryData {
   String? createdAt;
   String? updatedAt;
 
-  CategoryData(
+  Data(
       {this.sId,
         this.name,
         this.slug,
@@ -74,7 +74,7 @@ class CategoryData {
         this.createdAt,
         this.updatedAt});
 
-  CategoryData.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     name = json['name'];
     slug = json['slug'];

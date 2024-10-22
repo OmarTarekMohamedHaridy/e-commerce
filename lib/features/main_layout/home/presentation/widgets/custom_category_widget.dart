@@ -7,7 +7,7 @@ import '../../../../../core/utils/styles_manager.dart';
 import '../../data/models/category_model.dart';
 
 class CustomCategoryWidget extends StatelessWidget {
-  CategoryData categoryData;
+  Data categoryData;
 
   CustomCategoryWidget({required this.categoryData, super.key});
 

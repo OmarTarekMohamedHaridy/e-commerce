@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import '../../../../../core/exceptions/failuers.dart';
 import '../../domain/repository/category_repo.dart';
 import '../dataSource/category_ds.dart';
 import '../models/category_model.dart';
 
-
+@Injectable(as: CategoryRepository)
 class CategoryRepoImpl implements CategoryRepository {
   CategoryDS categoryDS;
 

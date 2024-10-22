@@ -1,25 +1,25 @@
 part of 'category_bloc.dart';
 
-class CategoryState {
+class HomeState {
   RequestState? requestState;
   CategoryModel? categoryModel;
   String? errorMessage;
 
-  CategoryState({this.requestState, this.categoryModel, this.errorMessage});
+  HomeState({this.requestState, this.categoryModel, this.errorMessage});
 
-  CategoryState copyWith(
+  HomeState copyWith(
       {RequestState? requestState,
         CategoryModel? categoryModel,
         String? errorMessage}) {
-    return CategoryState(
+    return HomeState(
         requestState: requestState ?? this.requestState,
         categoryModel: categoryModel ?? this.categoryModel,
         errorMessage: errorMessage ?? this.errorMessage);
   }
 }
 
-final class CategoryInitial extends CategoryState {
-  CategoryInitial()
+final class HomeInitial extends HomeState {
+  HomeInitial()
       : super(
       requestState: RequestState.init,
       categoryModel: null,

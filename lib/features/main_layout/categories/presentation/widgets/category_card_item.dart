@@ -9,9 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CategoryCardItem extends StatelessWidget {
   final String title;
   final String image;
-  final Function navigation;
 
-  const CategoryCardItem(this.title, this.image, this.navigation, {super.key});
+  const CategoryCardItem(this.title, this.image, Function() goToCategoryProductsListScreen, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +44,10 @@ class CategoryCardItem extends StatelessWidget {
                       // Category title
                       Text(
                         title,
+
                         style: getBoldStyle(
                             color: ColorManager.textColor,
-                            fontSize: FontSize.s16.sp),
+                            fontSize: FontSize.s14.sp),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

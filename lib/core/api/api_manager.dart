@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce_app/core/utils/constants_manager.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+
+@lazySingleton  //created when the app starts
+//@lazySingleton //created when  you need it
 class ApiManager {
   late Dio dio;
 

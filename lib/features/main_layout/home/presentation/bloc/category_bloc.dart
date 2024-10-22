@@ -1,18 +1,16 @@
-
-
 import 'package:bloc/bloc.dart';
-
+import 'package:injectable/injectable.dart';
 import '../../../../../core/utils/enums.dart';
 import '../../data/models/category_model.dart';
 import '../../domain/usecases/get_category_usecases.dart';
 part  'category_event.dart';
 part 'category_state.dart';
 
-
-class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
+@injectable
+class HomeBloc extends Bloc<HomeEvent, HomeState> {
   GetCategoryUseCase getCategoryUseCase;
 
-  CategoryBloc(this.getCategoryUseCase) : super((CategoryInitial())) {
+  HomeBloc(this.getCategoryUseCase) : super((HomeInitial())) {
     on<GetCategoryEvent>((event, emit) async {
       var result = await getCategoryUseCase();
       print(result);
